@@ -1,0 +1,1253 @@
+@import 'common';
+
+@font-face {
+    font-family: 'Arita-dotum-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-dotum-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$배너컬러:#666;
+$메인텍스트:#333;
+$서브텍스트:#1e1e1e;
+$비디오배너바탕: #f3f2f3;
+$노란메인 : #f8dd20;
+$카카오색상 : #3c1d1e;
+
+$센터사이즈: 1200px;
+
+$중간사이즈 : 767px;
+$작은사이즈 : 480px;
+
+
+/* 믹스인 */
+
+/* 나열 */
+@mixin float-item($left:0) {
+    float: left;
+    margin-left: $left;
+
+}
+
+/* 서브메뉴 */
+@mixin sub {
+    display: inline-block;
+    width: $센터사이즈;
+    height: 100%;
+    padding: 57px 1px 60px 0;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+/* 화살표 */
+@mixin anchorArrow {
+    display: block;
+    width: 14px;
+    height: 14px;
+    background: url(../images/ico_corp_181031.png);
+    background-repeat: no-repeat;
+    background-position: -155px 0;
+    text-indent: -9999px;
+    vertical-align: top;
+}
+
+/* 작은 비디오 배너 */
+@mixin videoBlock($width: 40%, $padding: 25px, $radius:10px, $color:$비디오배너바탕) {
+    width: $width;
+    height: 100%;
+    padding: $padding;
+    border-radius: $radius;
+    background: $color;
+}
+
+/* 버튼 누르기 */
+@mixin makeBtn($size, $radius:50%, $color:black) {
+    display: block;
+    width: $size;
+    height: $size;
+    border-radius: $radius;
+    background-color: $color;
+}
+
+/* 테두리 만들기 */
+@mixin borderBox($line:1px, $radius:20px) {
+    border: $line solid black;
+    border-radius: $radius;
+    box-sizing: border-box;
+}
+
+
+/* footer 서브 메뉴들 */
+@mixin footerSub {
+    // display:none;
+    position: absolute;
+    bottom: 150%;
+    left: 0;
+    @include borderBox(1px, 0);
+    background-color: white;
+    padding: 5px;
+}
+
+@mixin mobile($width) {
+    @media screen and (max-width:$width) {
+        @content;
+
+    }
+}
+
+/* 헤더 */
+header {
+    // display: none;
+    position: static;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    // background-color: antiquewhite;
+
+
+
+    .headWrap {
+        // max-width:1700px;
+        padding: 0 80px;
+        height: 60px;
+        line-height: 24px;
+        text-align: center;
+        position: relative;
+        vertical-align: middle;
+        margin: 0 auto;
+
+
+        .logo {
+            float: left;
+            padding-top: 20px;
+
+            a {
+                display: block;
+                width: 80px;
+                height: 20px;
+                background: url(../images/logo_kakao.png) no-repeat 0 0;
+                text-indent: -9999px;
+            }
+        }
+
+        .gnb {
+            float: right;
+            padding-top: 20px;
+            line-height: 24px;
+
+            li {
+                @include float-item(15px);
+
+            }
+
+            @include mobile(1000px) {
+                display: none;
+            }
+
+            .pchamBtn {
+                a {
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+
+                    img {
+                        width: 100%;
+                        padding-bottom: 2.5px;
+                    }
+                }
+            }
+        }
+
+
+
+        .mhamBtn {
+
+            display: none;
+
+            @include mobile(1000px) {
+                display: block;
+                float: right;
+                margin-top: 12px;
+            }
+        }
+
+        nav {
+            display: inline-block;
+
+            @include mobile(1000px) {
+                display: none;
+            }
+
+            #nav {
+                padding-top: 20px;
+
+                > li {
+                    // background-color:green;
+                    padding-bottom: 22px;
+                    @include float-item(40px);
+
+                    > a {
+                        font-weight: 600;
+                        text-decoration: none;
+                    }
+
+                    /* 서브메뉴 */
+                    > ul {
+                        position: absolute;
+                        width: 100%;
+                        top: 61px;
+                        left: 50%;
+                        padding: 40px 0;
+                        transform: translateX(-50%);
+                        background: white;
+
+                        > li {
+                            vertical-align: top;
+                            margin: 0 40px;
+
+                            /* 서브메뉴 글씨 */
+                            > a {
+                                font-size: 15px;
+                                font-weight: bold;
+                            }
+
+                            /* 최하 메뉴 */
+                            .subMenu {
+                                margin-top: 20px;
+
+                                li {
+                                    margin: 10px 0;
+
+                                    a {
+                                        font-size: 13px;
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+                // .sub1{
+                //     width:100%;
+                //     height:auto;
+                //     // background: dodgerblue;
+                //     >li {
+                //         display: inline-block;
+                //     }
+                // }
+
+                @for $i from 1 through 4 {
+                    .sub#{$i} {
+                        display: none;
+                        width: 100%;
+                        height: auto;
+                        z-index: 1000;
+
+                        // background: dodgerblue;
+                        > li {
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .hamMenu {
+        display: none;
+        width: 100%;
+        background: $노란메인;
+        text-align: center;
+
+
+        #hamNav {
+            width: 100%;
+            margin: 0 auto;
+            padding: 50px 0;
+
+
+            > li {
+                font-size: 30px;
+                font-weight: 700;
+                padding: 30px 0;
+                border: 1px solid black;
+                margin-top: 20px;
+
+                .sub {
+
+                    > li {
+                        display: inline-block;
+                        vertical-align: top;
+                        font-size: 22px;
+                        font-weight: bold;
+                        padding: 30px 20px;
+                        margin: 30px 30px 10px 0px;
+
+
+                        a {
+//                            border-bottom: 1px solid #333;
+
+                        }
+
+                        .subMenu {
+                            > li {
+                                font-size: 16px;
+                                margin: 20px 0;
+                                font-weight: normal;
+
+                                a {
+                                    border: none;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &:last-child {
+                    margin: 50px 0;
+                }
+            }
+        }
+    }
+
+
+    /* mobile slide 메뉴 */
+    .slideMenu {
+        display: none;
+        position: absolute;
+        z-index: 10000;
+        right: 0;
+        width:60%;
+        height: 100%;
+        background: white;
+        @include mobile($중간사이즈) {
+//                display: block;
+                margin-right: -100%;
+            }
+
+
+        ul {
+            width:100%;
+            text-align: center;
+            >li {
+                float: left;
+                width:100%;
+//                height: 60px;
+                line-height: 2;
+                padding: 10px;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
+                >a{
+                    font-size: 18px;
+                    font-weight: bold;
+                    text-decoration: none;
+                }
+
+                .sub {
+                      display:none;
+                    >li {
+                        border: none;
+//                        height:60px;
+                        >a {
+                            font-weight: normal;
+                            font-size: 16px;
+                        }
+                    }
+
+                    .subMenu {
+                        display: none;
+                        >li {
+//                            height: 60px;
+                            >a {
+                                font-weight: normal;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+
+
+
+    }
+
+}
+
+
+
+
+/* 본문 */
+#container {
+
+    /* 메인비디오 */
+    .mainBanner {
+
+        .mainVideo {
+            position: relative;
+
+            video {
+                width: 100%;
+            }
+
+            p {
+                position: absolute;
+                top: 10%;
+                left: 10%;
+                z-index: 100;
+                font-size: 45px;
+                font-weight: 700;
+                color: white;
+                letter-spacing: 0.5;
+
+                @include mobile($중간사이즈) {
+                    font-size: 30px;
+                }
+
+                @include mobile($작은사이즈) {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+    .center {
+        width: 1200px;
+        margin: 0 auto;
+
+        section {
+            margin-top: 100px;
+        }
+
+        @include mobile($센터사이즈) {
+            width: 100%;
+        }
+    }
+
+    .aboutKakao {
+        position: relative;
+
+        .aboutKakaoLeft {
+            float: left;
+            @include videoBlock();
+
+            @include mobile($센터사이즈) {
+                float: none;
+                margin: 50px 5%;
+                width: 86%;
+                //                height: 100%;
+
+                video {
+                    width:80%;
+                }
+            }
+
+            .introduceTitle {
+                font-size: 25px;
+                font-weight: 700;
+                color: $서브텍스트;
+
+            }
+
+            .introduceSubtitle {
+                font-size: 20px;
+                padding: 10px 20px;
+            }
+
+            video {
+                margin: 30px 0;
+                width: 100%;
+            }
+        }
+
+
+        .aboutKakaoRight {
+            position: relative;
+            float: right;
+            width: 50%;
+            max-height: 358.89px;
+            overflow: hidden;
+
+            @include mobile($센터사이즈) {
+                margin: 50px 5%;
+//                float: none;
+                width: 90%;
+//                height: 600px;
+                max-height: 600px;
+
+                video {
+                    height: 50%;
+                }
+            }
+
+
+            video {
+                float: right;
+                width: 43.5%;
+            }
+
+            .goal {
+                width: 600%;
+
+                li {
+                    position: relative;
+                    float: left;
+                    width: 16.66666%;
+
+                    background: $노란메인;
+                    box-sizing: border-box;
+                    padding: 40px;
+                    border-radius: 10px;
+
+                    &:nth-child(2) {
+                        background: #f1525a;
+                    }
+
+                    &:nth-child(3) {
+                        background: #4d5dff;
+                    }
+
+                    &:nth-child(4) {
+                        background: #79FEFF;
+                    }
+
+                    &:nth-child(5) {
+                        background: white;
+                    }
+
+                    p {
+                        word-break: keep-all;
+                        position: absolute;
+
+                        &.goalTitle {
+                            left: 5%;
+                            top: 7%;
+                            font-size: 25px;
+                            font-weight: 700;
+                        }
+
+                        &.goalContent {
+                            left: 5%;
+                            bottom: 20%;
+                        }
+                    }
+                }
+            }
+
+            .goalBtn {
+                position: absolute;
+                left: 25%;
+                bottom: 5%;
+
+                li {
+                    @include float-item(10px);
+
+                    a {
+                        @include makeBtn(10px, 50%, black);
+                        text-indent: -9999px;
+                    }
+
+                    &.active {
+                        a {
+                            background-color: white;
+                        }
+                    }
+
+                    &:last-child.active {
+                        a {
+                            background-color: $노란메인;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* history */
+    .history {
+        @include mobile($센터사이즈) {
+            display: flex;
+            flex-direction: column-reverse;
+            }
+
+
+        .historyLeft {
+            order: 1;
+            @include videoBlock(50%, 4px, 10px, $카카오색상);
+
+            border-radius: 10px;
+            //            background:$노란메인;
+            float: left;
+            width: 50%;
+            max-height: 358.89px;
+            // background: #1e1e1e;
+            position: relative;
+            overflow: hidden;
+
+            @include mobile($센터사이즈) {
+                float: none;
+                margin: 50px 5%;
+                width: 90%;
+            }
+
+            .more {
+                position: absolute;
+                right: 5%;
+                top: 2%;
+                width: 60px;
+                height: 20px;
+                border-radius: 5px;
+                background: white;
+                text-align: center;
+
+                > a {
+
+                    font-size: 15px;
+                    font-weight: 400;
+                }
+            }
+
+            .historyList {
+
+                padding-top: 5%;
+                width: 10000px;
+                height: 285px;
+
+                @include mobile($센터사이즈) {
+                    height: 600px;
+//                    width:600%;
+                }
+                // margin-left: -1458px;
+
+                li {
+                    @include float-item(0);
+                    text-align: center;
+                    width: 240px;
+
+                    @include mobile($중간사이즈) {
+        margin-top:10px;
+                    }
+
+                    a {
+                        display: block;
+                        width: 88%;
+                        height: 280px;
+                        margin: 0px 6%;
+                        // border-radius: 10px;
+                        background: white;
+                        position: relative;
+
+                        .historyTitle {
+                            font-size: 17px;
+                            padding: 20% 5%;
+                            word-break: keep-all;
+
+                            @include mobile($센터사이즈) {
+                                font-size: 15px;
+                                padding: 17% 5%;
+                            }
+                        }
+
+                        .historyCenterCirle {
+                            width: 60px;
+                            height: 60px;
+                            background-color: $노란메인;
+                            border-radius: 50%;
+                            line-height: 60px;
+                            position: absolute;
+                            top: 40%;
+                            left: 50%;
+                            transform: translateY(-50%);
+                            transform: translateX(-50%);
+                            color: white;
+                            text-shadow: 0 0 3px #ddaa04;
+                            font-size: 14px;
+
+                        }
+
+                        @for $i from 1 through 6 {
+                            .historyImg#{$i} {
+                                width: 100%;
+                                height: 140px;
+                                position: absolute;
+                                bottom: 0;
+                                background-image: url(../images/histroy#{$i}.jfif);
+                                background-repeat: no-repeat;
+                                background-size: cover;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .ArrowWrap {
+                width: 60%;
+                margin-left: 20%;
+
+                @include mobile($센터사이즈) {
+
+                display: none;
+                }
+
+                .historyArrow {
+                    margin-top: 20px;
+                    width: 100%;
+
+                    .historyBtnleft {
+                        float: left;
+                    }
+
+                    .historyBtnright {
+                        float: right;
+                    }
+                }
+
+                .historyBtn {
+                    display: none;
+                    position: absolute;
+                    bottom: 0px;
+                    left: 50%;
+                    transform: translateX(-50%);
+
+                    li {
+                        display: inline-block;
+                        margin: 10px;
+
+                        a {
+                            display: block;
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50%;
+                            background: white;
+                            text-indent: -9999px;
+
+
+                            &.active {
+                                background: $노란메인;
+                            }
+                        }
+                    }
+                }
+
+                .historySlide {
+                    display: block;
+                    position: absolute;
+                    width: 50%;
+                    height: 8px;
+                    left: 50%;
+                    bottom: 3%;
+                    transform: translateX(-50%);
+                    border-radius: 5px;
+                    background: white;
+                    overflow: hidden;
+
+                    .currentSlide {
+                        width: 16.666%;
+                        background: $노란메인;
+                        height: 8px;
+                        border-radius: 5px;
+                    }
+                }
+            }
+
+
+        }
+
+        .historyRight {
+            order: 2;
+            float: right;
+            @include videoBlock(40%, 30px, 10px, $비디오배너바탕);
+//            @include mobile($중간사이즈) {
+//                order: 1;
+//            }
+
+
+            .historyTitle {
+                font-size: 25px;
+                font-weight: 700;
+                color: $서브텍스트;
+            }
+
+            .histroySubtitle {
+                font-size: 20px;
+                padding: 10px 20px;
+            }
+
+            .historyImg {
+                img {
+                    width: 100%;
+                }
+            }
+
+            @include mobile($센터사이즈) {
+                float: none;
+                                margin: 50px 5%;
+                width: 86%;
+                img{
+                    width:90%;
+                }
+            }
+        }
+    }
+
+
+    /* information */
+    .information {
+        background: #1e1e1e;
+        width: 100%;
+        height: 55vw;
+        max-height: 850px;
+        margin: 100px 0;
+
+        @include mobile($중간사이즈) {
+            height: 60vw;
+        }
+
+        .informationWrap {
+            width: 100%;
+            max-width: 1600px;
+            // background-color: antiquewhite;
+            margin: 0 auto;
+            padding: 50px 0;
+            position: relative;
+
+            @include mobile($중간사이즈) {
+            paddin: 10px 0;
+        }
+
+
+            .informationBtn {
+                position: absolute;
+                left: 5%;
+                z-index: 10;
+
+                li {
+                    width: 120%;
+                    line-height: 2;
+                    border-radius: 10px;
+                    background: $배너컬러;
+                    text-align: center;
+                    margin: 10px 0;
+                    padding: 10px;
+
+
+                    a {
+                        font-size: 20px;
+                        color: white;
+                        text-decoration: none;
+                    }
+
+
+                    @include mobile(900px) {
+                        width:100%;
+                        padding: 2px 5px;
+                        a{
+                            font-size: 16px;
+                        }
+                    }
+
+                    @include mobile(600px) {
+                        float: left;
+                        left: 2%;
+                        width: 60%;
+                        font-size: 12px;
+                        padding: 0;
+                        line-height: 1;
+                    }
+
+
+                }
+            }
+
+            .informationImg {
+                float: right;
+                width: 90%;
+
+                li {
+                    display: none;
+                    position: absolute;
+                    width: 90%;
+
+                    &:first-child {
+                        display: block;
+                    }
+
+
+                    img {
+                        width: 95%;
+                        padding-right: 5%;
+                    }
+
+                    .infoTextbox {
+                        position: absolute;
+                        bottom: 5%;
+                        right: 10%;
+                        width: 75%;
+                        background-color: rgba(500, 500, 500, 0.7);
+                        border-radius: 10px;
+                        padding: 10px;
+
+                        @include mobile ($작은사이즈) {
+                            display: none;
+                        }
+
+                        .informationTitle {
+                            padding: 10px 10px 15px;
+
+                            font-size: 25px;
+                            font-weight: 700;
+                            color: black;
+                            word-break: keep-all;
+
+                            @include mobile (900px) {
+                                font-size: 18px;
+                            }
+                        }
+
+                        .informationContent {
+                            font-size: 16px;
+                            padding: 0 15px 10px;
+
+                            word-break: keep-all;
+                            @include mobile (900px) {
+                                font-size: 14px;
+                            }
+
+                            @include mobile($중간사이즈) {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+    }
+
+
+
+    /* etc */
+    .etc {
+
+        border-top: 1px solid black;
+        padding-top: 100px;
+
+
+
+        .etcWrap {
+            width: 100%;
+//            height: 600px;
+            // background: pink;
+            vertical-align: bottom;
+
+            display: flex;
+//        flex-direction: column;
+            justify-content: space-between;
+
+            @include mobile(1000px) {
+//                flex-direction: column;
+                            justify-content: none;
+                            flex-wrap: wrap;
+
+            }
+
+            > li {
+                float: left;
+                width: 50%;
+                height: 100%;
+
+
+
+                &:first-child {
+                    width: 25%;
+
+                    @include mobile(1000px) {
+                        width: 50%;
+                        order:3;
+                    }
+                }
+
+                &:nth-child(2)
+                {
+                    @include mobile(1000px) {
+                        order:1;
+                        width:100%;
+                    }
+                }
+                &:last-child {
+                    width: 25%;
+                    @include mobile(1000px) {
+                        order:2;
+                        width:50%;
+                    }
+                }
+
+
+
+
+                .stock {
+
+                    width: 100%;
+                    height: 160px;
+                    // float:left;
+//                    margin-right: 1.9%;
+                    margin-top: 175px;
+
+
+
+                    h3 {
+                        font-size: 25px;
+                        font-weight: 600;
+                        padding: 20px;
+                    }
+
+                    // background-color: aqua;
+                    // @include borderBox( );
+
+                    .stockContent {
+                        padding: 0 30px;
+                        font-size: 25px;
+                        font-weight: 500;
+
+                        span {
+                            margin-left: 20px;
+                            color: blue;
+                            font-size: 20px;
+                        }
+                    }
+
+                    .stockDate {
+                        float: right;
+                        margin: 30px 10px 0 0;
+                    }
+
+                }
+
+
+                .etcMiddle {
+
+                    width: 100%;
+                    height: 600px;
+                    // float:left;
+                    margin-right: 1.9%;
+                    text-align: center;
+
+                    // border: 1px solid $배너컬러;
+                    // border-radius: 10px;
+                    overflow: hidden;
+                    position: relative;
+
+                    @include mobile($중간사이즈) {
+                        order:1;
+                    }
+
+                    .newsList {
+                        width: 300%;
+                        height: 100%;
+
+                        > li {
+                            float: left;
+                            // background-color: green;
+                            width: 33.33333%;
+                            height: 100%;
+
+
+                            .newsTitle {
+                                font-size: 20px;
+                                padding: 10px 40px;
+
+                            }
+
+                            .newsContent {
+                                padding: 10px 15px 0px;
+                            }
+
+                            img {
+                                padding: 10px;
+                                width: 90%;
+                                height: 60%;
+                            }
+                        }
+                    }
+
+                    .newsBtn {
+
+                        position: absolute;
+                        bottom: 10px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        z-index: 100;
+
+                        > li {
+                            @include float-item(10px);
+
+                            > a {
+                                @include makeBtn(10px);
+                                margin-bottom: 10px;
+                                text-indent: -9999px;
+                            }
+
+                            &.active {
+                                a {
+                                    background-color: $노란메인;
+                                }
+                            }
+                        }
+
+                    }
+
+                    .newsMore {
+                        display: block;
+                        position: absolute;
+                        bottom: 10px;
+                        right: 10px;
+                        // background: $노란메인;
+                        line-height: 1;
+                        // border: 1px solid black;
+                        border-radius: 50%;
+
+                        a {
+                            display: block;
+                            width: 40px;
+                            height: 40px;
+                            font-size: 40px;
+                        }
+                    }
+                }
+
+
+
+                .policy {
+                    width: 100%;
+                    height: 160px;
+                    // float:left;
+                    margin-top: 175px;
+                    @include mobile($중간사이즈) {
+                        order:2;
+                    }
+
+                    h3 {
+                        font-size: 25px;
+                        font-weight: 600;
+                        padding: 20px;
+                    }
+
+                    // background-color: bisque;
+                    // @include borderBox( );
+
+                    .policyContent {
+                        word-break: keep-all;
+                        ;
+                        padding: 0 30px;
+                        font-size: 16px;
+                    }
+                }
+
+            }
+        }
+
+
+    }
+}
+
+
+
+/* footer */
+footer {
+    margin-top: 300px;
+    border-top: 1px solid $배너컬러;
+    font-size: 14px;
+    padding: 0px 0px 10px;
+
+    .footerTop {
+        margin-top: 20px;
+
+        li {
+            position: relative;
+            @include float-item(15px);
+            line-height:24px;
+
+            // @for $i from 1 through 5 {
+            .footerSub {
+                @include footerSub();
+            }
+
+            // }
+
+            ul {
+                display: none;
+            }
+
+            &:first-child {
+                li {
+                    width: 130px;
+                }
+            }
+
+            &:nth-child(2) {
+                span {
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(3) {
+                li {
+                    width: 140px;
+                }
+
+                span {
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(5) {
+                li {
+                    width: 140px;
+                }
+            }
+
+            &:nth-child(7) {
+                li {
+                    width: 140px;
+                }
+            }
+        }
+    }
+
+    .Sites {
+        float: right;
+        margin-right: 10%;
+        border: 1px solid $배너컬러;
+        padding: 5px 60px 5px 5px;
+        position: relative;
+
+        @include mobile($센터사이즈){
+            margin: 20px 80px 5px 20px;
+        }
+
+        &::after {
+            display: block;
+            position: absolute;
+            right: 0;
+            bottom: 42%;
+            content: "+";
+            width: 10px;
+            height: 10px;
+        }
+
+        .sitesList {
+            @include footerSub();
+            display: none;
+        }
+
+    }
+
+    address {
+        margin: 20px 20px;
+
+
+    }
+}

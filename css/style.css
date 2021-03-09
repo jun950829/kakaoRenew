@@ -1,0 +1,1148 @@
+@charset "UTF-8";
+/* Reset */
+html {
+  overflow-y: scroll;
+  font-size: 13px;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, form, fieldset, p, button, input {
+  margin: 0;
+  padding: 0;
+}
+
+body, h1, h2, h3, h4, input, button {
+  font-family: arial, Helvetica, AppleSDGothicNeo, sans-serif, Arita-dotum-Medium;
+  font-size: 16px;
+  color: #444;
+}
+
+body {
+  background-color: #fff;
+  *word-break: break-all;
+  -ms-word-break: break-all;
+}
+
+img, fieldset, iframe {
+  border: 0 none;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+input, select, button {
+  vertical-align: middle;
+}
+
+img {
+  vertical-align: middle;
+}
+
+i, em, address {
+  font-style: normal;
+}
+
+label, button {
+  cursor: pointer;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #222;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+button * {
+  position: relative;
+}
+
+button img {
+  left: -3px;
+  *left: auto;
+}
+
+html:first-child select {
+  height: 20px;
+  padding-right: 6px;
+}
+
+option {
+  padding-right: 6px;
+}
+
+hr {
+  display: none;
+}
+
+legend {
+  *width: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+header, footer, nav, section, aside {
+  display: block;
+}
+
+/* clearfix */
+.clearFix {
+  *zoom: 1;
+}
+
+.clearFix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* Hide */
+.blind {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: -9999em;
+}
+
+/* Skip */
+.skip a {
+  position: absolute;
+  left: 0;
+  top: -9999em;
+  z-index: 9999;
+  display: block;
+  width: 100%;
+  background-color: #039;
+  color: #eee;
+  font-family: "san-serif";
+  text-transform: uppercase;
+  text-decoration: none;
+  line-height: 30px;
+}
+
+.skip a:hover,
+.skip a:active,
+.skip a:focus {
+  top: 0;
+}
+
+@font-face {
+  font-family: "Arita-dotum-Medium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-dotum-Medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* 믹스인 */
+/* 나열 */
+/* 서브메뉴 */
+/* 화살표 */
+/* 작은 비디오 배너 */
+/* 버튼 누르기 */
+/* 테두리 만들기 */
+/* footer 서브 메뉴들 */
+/* 헤더 */
+header {
+  position: static;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  /* mobile slide 메뉴 */
+}
+header .headWrap {
+  padding: 0 80px;
+  height: 60px;
+  line-height: 24px;
+  text-align: center;
+  position: relative;
+  vertical-align: middle;
+  margin: 0 auto;
+}
+header .headWrap .logo {
+  float: left;
+  padding-top: 20px;
+}
+header .headWrap .logo a {
+  display: block;
+  width: 80px;
+  height: 20px;
+  background: url(../images/logo_kakao.png) no-repeat 0 0;
+  text-indent: -9999px;
+}
+header .headWrap .gnb {
+  float: right;
+  padding-top: 20px;
+  line-height: 24px;
+}
+header .headWrap .gnb li {
+  float: left;
+  margin-left: 15px;
+}
+@media screen and (max-width: 1000px) {
+  header .headWrap .gnb {
+    display: none;
+  }
+}
+header .headWrap .gnb .pchamBtn a {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+header .headWrap .gnb .pchamBtn a img {
+  width: 100%;
+  padding-bottom: 2.5px;
+}
+header .headWrap .mhamBtn {
+  display: none;
+}
+@media screen and (max-width: 1000px) {
+  header .headWrap .mhamBtn {
+    display: block;
+    float: right;
+    margin-top: 12px;
+  }
+}
+header .headWrap nav {
+  display: inline-block;
+}
+@media screen and (max-width: 1000px) {
+  header .headWrap nav {
+    display: none;
+  }
+}
+header .headWrap nav #nav {
+  padding-top: 20px;
+}
+header .headWrap nav #nav > li {
+  padding-bottom: 22px;
+  float: left;
+  margin-left: 40px;
+  /* 서브메뉴 */
+}
+header .headWrap nav #nav > li > a {
+  font-weight: 600;
+  text-decoration: none;
+}
+header .headWrap nav #nav > li > ul {
+  position: absolute;
+  width: 100%;
+  top: 61px;
+  left: 50%;
+  padding: 40px 0;
+  transform: translateX(-50%);
+  background: white;
+}
+header .headWrap nav #nav > li > ul > li {
+  vertical-align: top;
+  margin: 0 40px;
+  /* 서브메뉴 글씨 */
+  /* 최하 메뉴 */
+}
+header .headWrap nav #nav > li > ul > li > a {
+  font-size: 15px;
+  font-weight: bold;
+}
+header .headWrap nav #nav > li > ul > li .subMenu {
+  margin-top: 20px;
+}
+header .headWrap nav #nav > li > ul > li .subMenu li {
+  margin: 10px 0;
+}
+header .headWrap nav #nav > li > ul > li .subMenu li a {
+  font-size: 13px;
+}
+header .headWrap nav #nav .sub1 {
+  display: none;
+  width: 100%;
+  height: auto;
+  z-index: 1000;
+}
+header .headWrap nav #nav .sub1 > li {
+  display: inline-block;
+}
+header .headWrap nav #nav .sub2 {
+  display: none;
+  width: 100%;
+  height: auto;
+  z-index: 1000;
+}
+header .headWrap nav #nav .sub2 > li {
+  display: inline-block;
+}
+header .headWrap nav #nav .sub3 {
+  display: none;
+  width: 100%;
+  height: auto;
+  z-index: 1000;
+}
+header .headWrap nav #nav .sub3 > li {
+  display: inline-block;
+}
+header .headWrap nav #nav .sub4 {
+  display: none;
+  width: 100%;
+  height: auto;
+  z-index: 1000;
+}
+header .headWrap nav #nav .sub4 > li {
+  display: inline-block;
+}
+header .hamMenu {
+  display: none;
+  width: 100%;
+  background: #f8dd20;
+  text-align: center;
+}
+header .hamMenu #hamNav {
+  width: 100%;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+header .hamMenu #hamNav > li {
+  font-size: 30px;
+  font-weight: 700;
+  padding: 30px 0;
+  border: 1px solid black;
+  margin-top: 20px;
+}
+header .hamMenu #hamNav > li .sub > li {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 30px 20px;
+  margin: 30px 30px 10px 0px;
+}
+header .hamMenu #hamNav > li .sub > li .subMenu > li {
+  font-size: 16px;
+  margin: 20px 0;
+  font-weight: normal;
+}
+header .hamMenu #hamNav > li .sub > li .subMenu > li a {
+  border: none;
+}
+header .hamMenu #hamNav > li:last-child {
+  margin: 50px 0;
+}
+header .slideMenu {
+  display: none;
+  position: absolute;
+  z-index: 10000;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  background: white;
+}
+@media screen and (max-width: 767px) {
+  header .slideMenu {
+    margin-right: -100%;
+  }
+}
+header .slideMenu ul {
+  width: 100%;
+  text-align: center;
+}
+header .slideMenu ul > li {
+  float: left;
+  width: 100%;
+  line-height: 2;
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+header .slideMenu ul > li > a {
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+}
+header .slideMenu ul > li .sub {
+  display: none;
+}
+header .slideMenu ul > li .sub > li {
+  border: none;
+}
+header .slideMenu ul > li .sub > li > a {
+  font-weight: normal;
+  font-size: 16px;
+}
+header .slideMenu ul > li .sub .subMenu {
+  display: none;
+}
+header .slideMenu ul > li .sub .subMenu > li > a {
+  font-weight: normal;
+  font-size: 14px;
+}
+
+/* 본문 */
+#container {
+  /* 메인비디오 */
+  /* history */
+  /* information */
+  /* etc */
+}
+#container .mainBanner .mainVideo {
+  position: relative;
+}
+#container .mainBanner .mainVideo video {
+  width: 100%;
+}
+#container .mainBanner .mainVideo p {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 100;
+  font-size: 45px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.5;
+}
+@media screen and (max-width: 767px) {
+  #container .mainBanner .mainVideo p {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #container .mainBanner .mainVideo p {
+    font-size: 20px;
+  }
+}
+#container .center {
+  width: 1200px;
+  margin: 0 auto;
+}
+#container .center section {
+  margin-top: 100px;
+}
+@media screen and (max-width: 1200px) {
+  #container .center {
+    width: 100%;
+  }
+}
+#container .aboutKakao {
+  position: relative;
+}
+#container .aboutKakao .aboutKakaoLeft {
+  float: left;
+  width: 40%;
+  height: 100%;
+  padding: 25px;
+  border-radius: 10px;
+  background: #f3f2f3;
+}
+@media screen and (max-width: 1200px) {
+  #container .aboutKakao .aboutKakaoLeft {
+    float: none;
+    margin: 50px 5%;
+    width: 86%;
+  }
+  #container .aboutKakao .aboutKakaoLeft video {
+    width: 80%;
+  }
+}
+#container .aboutKakao .aboutKakaoLeft .introduceTitle {
+  font-size: 25px;
+  font-weight: 700;
+  color: #1e1e1e;
+}
+#container .aboutKakao .aboutKakaoLeft .introduceSubtitle {
+  font-size: 20px;
+  padding: 10px 20px;
+}
+#container .aboutKakao .aboutKakaoLeft video {
+  margin: 30px 0;
+  width: 100%;
+}
+#container .aboutKakao .aboutKakaoRight {
+  position: relative;
+  float: right;
+  width: 50%;
+  max-height: 358.89px;
+  overflow: hidden;
+}
+@media screen and (max-width: 1200px) {
+  #container .aboutKakao .aboutKakaoRight {
+    margin: 50px 5%;
+    width: 90%;
+    max-height: 600px;
+  }
+  #container .aboutKakao .aboutKakaoRight video {
+    height: 50%;
+  }
+}
+#container .aboutKakao .aboutKakaoRight video {
+  float: right;
+  width: 43.5%;
+}
+#container .aboutKakao .aboutKakaoRight .goal {
+  width: 600%;
+}
+#container .aboutKakao .aboutKakaoRight .goal li {
+  position: relative;
+  float: left;
+  width: 16.66666%;
+  background: #f8dd20;
+  box-sizing: border-box;
+  padding: 40px;
+  border-radius: 10px;
+}
+#container .aboutKakao .aboutKakaoRight .goal li:nth-child(2) {
+  background: #f1525a;
+}
+#container .aboutKakao .aboutKakaoRight .goal li:nth-child(3) {
+  background: #4d5dff;
+}
+#container .aboutKakao .aboutKakaoRight .goal li:nth-child(4) {
+  background: #79FEFF;
+}
+#container .aboutKakao .aboutKakaoRight .goal li:nth-child(5) {
+  background: white;
+}
+#container .aboutKakao .aboutKakaoRight .goal li p {
+  word-break: keep-all;
+  position: absolute;
+}
+#container .aboutKakao .aboutKakaoRight .goal li p.goalTitle {
+  left: 5%;
+  top: 7%;
+  font-size: 25px;
+  font-weight: 700;
+}
+#container .aboutKakao .aboutKakaoRight .goal li p.goalContent {
+  left: 5%;
+  bottom: 20%;
+}
+#container .aboutKakao .aboutKakaoRight .goalBtn {
+  position: absolute;
+  left: 25%;
+  bottom: 5%;
+}
+#container .aboutKakao .aboutKakaoRight .goalBtn li {
+  float: left;
+  margin-left: 10px;
+}
+#container .aboutKakao .aboutKakaoRight .goalBtn li a {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: black;
+  text-indent: -9999px;
+}
+#container .aboutKakao .aboutKakaoRight .goalBtn li.active a {
+  background-color: white;
+}
+#container .aboutKakao .aboutKakaoRight .goalBtn li:last-child.active a {
+  background-color: #f8dd20;
+}
+@media screen and (max-width: 1200px) {
+  #container .history {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+#container .history .historyLeft {
+  order: 1;
+  width: 50%;
+  height: 100%;
+  padding: 4px;
+  border-radius: 10px;
+  background: #3c1d1e;
+  border-radius: 10px;
+  float: left;
+  width: 50%;
+  max-height: 358.89px;
+  position: relative;
+  overflow: hidden;
+}
+@media screen and (max-width: 1200px) {
+  #container .history .historyLeft {
+    float: none;
+    margin: 50px 5%;
+    width: 90%;
+  }
+}
+#container .history .historyLeft .more {
+  position: absolute;
+  right: 5%;
+  top: 2%;
+  width: 60px;
+  height: 20px;
+  border-radius: 5px;
+  background: white;
+  text-align: center;
+}
+#container .history .historyLeft .more > a {
+  font-size: 15px;
+  font-weight: 400;
+}
+#container .history .historyLeft .historyList {
+  padding-top: 5%;
+  width: 10000px;
+  height: 285px;
+}
+@media screen and (max-width: 1200px) {
+  #container .history .historyLeft .historyList {
+    height: 600px;
+  }
+}
+#container .history .historyLeft .historyList li {
+  float: left;
+  margin-left: 0;
+  text-align: center;
+  width: 240px;
+}
+@media screen and (max-width: 767px) {
+  #container .history .historyLeft .historyList li {
+    margin-top: 10px;
+  }
+}
+#container .history .historyLeft .historyList li a {
+  display: block;
+  width: 88%;
+  height: 280px;
+  margin: 0px 6%;
+  background: white;
+  position: relative;
+}
+#container .history .historyLeft .historyList li a .historyTitle {
+  font-size: 17px;
+  padding: 20% 5%;
+  word-break: keep-all;
+}
+@media screen and (max-width: 1200px) {
+  #container .history .historyLeft .historyList li a .historyTitle {
+    font-size: 15px;
+    padding: 17% 5%;
+  }
+}
+#container .history .historyLeft .historyList li a .historyCenterCirle {
+  width: 60px;
+  height: 60px;
+  background-color: #f8dd20;
+  border-radius: 50%;
+  line-height: 60px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+  color: white;
+  text-shadow: 0 0 3px #ddaa04;
+  font-size: 14px;
+}
+#container .history .historyLeft .historyList li a .historyImg1 {
+  width: 100%;
+  height: 140px;
+  position: absolute;
+  bottom: 0;
+  background-image: url(../images/histroy1.jfif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#container .history .historyLeft .historyList li a .historyImg2 {
+  width: 100%;
+  height: 140px;
+  position: absolute;
+  bottom: 0;
+  background-image: url(../images/histroy2.jfif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#container .history .historyLeft .historyList li a .historyImg3 {
+  width: 100%;
+  height: 140px;
+  position: absolute;
+  bottom: 0;
+  background-image: url(../images/histroy3.jfif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#container .history .historyLeft .historyList li a .historyImg4 {
+  width: 100%;
+  height: 140px;
+  position: absolute;
+  bottom: 0;
+  background-image: url(../images/histroy4.jfif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#container .history .historyLeft .historyList li a .historyImg5 {
+  width: 100%;
+  height: 140px;
+  position: absolute;
+  bottom: 0;
+  background-image: url(../images/histroy5.jfif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#container .history .historyLeft .historyList li a .historyImg6 {
+  width: 100%;
+  height: 140px;
+  position: absolute;
+  bottom: 0;
+  background-image: url(../images/histroy6.jfif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#container .history .historyLeft .ArrowWrap {
+  width: 60%;
+  margin-left: 20%;
+}
+@media screen and (max-width: 1200px) {
+  #container .history .historyLeft .ArrowWrap {
+    display: none;
+  }
+}
+#container .history .historyLeft .ArrowWrap .historyArrow {
+  margin-top: 20px;
+  width: 100%;
+}
+#container .history .historyLeft .ArrowWrap .historyArrow .historyBtnleft {
+  float: left;
+}
+#container .history .historyLeft .ArrowWrap .historyArrow .historyBtnright {
+  float: right;
+}
+#container .history .historyLeft .ArrowWrap .historyBtn {
+  display: none;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#container .history .historyLeft .ArrowWrap .historyBtn li {
+  display: inline-block;
+  margin: 10px;
+}
+#container .history .historyLeft .ArrowWrap .historyBtn li a {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: white;
+  text-indent: -9999px;
+}
+#container .history .historyLeft .ArrowWrap .historyBtn li a.active {
+  background: #f8dd20;
+}
+#container .history .historyLeft .ArrowWrap .historySlide {
+  display: block;
+  position: absolute;
+  width: 50%;
+  height: 8px;
+  left: 50%;
+  bottom: 3%;
+  transform: translateX(-50%);
+  border-radius: 5px;
+  background: white;
+  overflow: hidden;
+}
+#container .history .historyLeft .ArrowWrap .historySlide .currentSlide {
+  width: 16.666%;
+  background: #f8dd20;
+  height: 8px;
+  border-radius: 5px;
+}
+#container .history .historyRight {
+  order: 2;
+  float: right;
+  width: 40%;
+  height: 100%;
+  padding: 30px;
+  border-radius: 10px;
+  background: #f3f2f3;
+}
+#container .history .historyRight .historyTitle {
+  font-size: 25px;
+  font-weight: 700;
+  color: #1e1e1e;
+}
+#container .history .historyRight .histroySubtitle {
+  font-size: 20px;
+  padding: 10px 20px;
+}
+#container .history .historyRight .historyImg img {
+  width: 100%;
+}
+@media screen and (max-width: 1200px) {
+  #container .history .historyRight {
+    float: none;
+    margin: 50px 5%;
+    width: 86%;
+  }
+  #container .history .historyRight img {
+    width: 90%;
+  }
+}
+#container .information {
+  background: #1e1e1e;
+  width: 100%;
+  height: 55vw;
+  max-height: 850px;
+  margin: 100px 0;
+}
+@media screen and (max-width: 767px) {
+  #container .information {
+    height: 60vw;
+  }
+}
+#container .information .informationWrap {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 50px 0;
+  position: relative;
+}
+@media screen and (max-width: 767px) {
+  #container .information .informationWrap {
+    paddin: 10px 0;
+  }
+}
+#container .information .informationWrap .informationBtn {
+  position: absolute;
+  left: 5%;
+  z-index: 10;
+}
+#container .information .informationWrap .informationBtn li {
+  width: 120%;
+  line-height: 2;
+  border-radius: 10px;
+  background: #666;
+  text-align: center;
+  margin: 10px 0;
+  padding: 10px;
+}
+#container .information .informationWrap .informationBtn li a {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+@media screen and (max-width: 900px) {
+  #container .information .informationWrap .informationBtn li {
+    width: 100%;
+    padding: 2px 5px;
+  }
+  #container .information .informationWrap .informationBtn li a {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 600px) {
+  #container .information .informationWrap .informationBtn li {
+    float: left;
+    left: 2%;
+    width: 60%;
+    font-size: 12px;
+    padding: 0;
+    line-height: 1;
+  }
+}
+#container .information .informationWrap .informationImg {
+  float: right;
+  width: 90%;
+}
+#container .information .informationWrap .informationImg li {
+  display: none;
+  position: absolute;
+  width: 90%;
+}
+#container .information .informationWrap .informationImg li:first-child {
+  display: block;
+}
+#container .information .informationWrap .informationImg li img {
+  width: 95%;
+  padding-right: 5%;
+}
+#container .information .informationWrap .informationImg li .infoTextbox {
+  position: absolute;
+  bottom: 5%;
+  right: 10%;
+  width: 75%;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  padding: 10px;
+}
+@media screen and (max-width: 480px) {
+  #container .information .informationWrap .informationImg li .infoTextbox {
+    display: none;
+  }
+}
+#container .information .informationWrap .informationImg li .infoTextbox .informationTitle {
+  padding: 10px 10px 15px;
+  font-size: 25px;
+  font-weight: 700;
+  color: black;
+  word-break: keep-all;
+}
+@media screen and (max-width: 900px) {
+  #container .information .informationWrap .informationImg li .infoTextbox .informationTitle {
+    font-size: 18px;
+  }
+}
+#container .information .informationWrap .informationImg li .infoTextbox .informationContent {
+  font-size: 16px;
+  padding: 0 15px 10px;
+  word-break: keep-all;
+}
+@media screen and (max-width: 900px) {
+  #container .information .informationWrap .informationImg li .infoTextbox .informationContent {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 767px) {
+  #container .information .informationWrap .informationImg li .infoTextbox .informationContent {
+    display: none;
+  }
+}
+#container .etc {
+  border-top: 1px solid black;
+  padding-top: 100px;
+}
+#container .etc .etcWrap {
+  width: 100%;
+  vertical-align: bottom;
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 1000px) {
+  #container .etc .etcWrap {
+    justify-content: none;
+    flex-wrap: wrap;
+  }
+}
+#container .etc .etcWrap > li {
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+#container .etc .etcWrap > li:first-child {
+  width: 25%;
+}
+@media screen and (max-width: 1000px) {
+  #container .etc .etcWrap > li:first-child {
+    width: 50%;
+    order: 3;
+  }
+}
+@media screen and (max-width: 1000px) {
+  #container .etc .etcWrap > li:nth-child(2) {
+    order: 1;
+    width: 100%;
+  }
+}
+#container .etc .etcWrap > li:last-child {
+  width: 25%;
+}
+@media screen and (max-width: 1000px) {
+  #container .etc .etcWrap > li:last-child {
+    order: 2;
+    width: 50%;
+  }
+}
+#container .etc .etcWrap > li .stock {
+  width: 100%;
+  height: 160px;
+  margin-top: 175px;
+}
+#container .etc .etcWrap > li .stock h3 {
+  font-size: 25px;
+  font-weight: 600;
+  padding: 20px;
+}
+#container .etc .etcWrap > li .stock .stockContent {
+  padding: 0 30px;
+  font-size: 25px;
+  font-weight: 500;
+}
+#container .etc .etcWrap > li .stock .stockContent span {
+  margin-left: 20px;
+  color: blue;
+  font-size: 20px;
+}
+#container .etc .etcWrap > li .stock .stockDate {
+  float: right;
+  margin: 30px 10px 0 0;
+}
+#container .etc .etcWrap > li .etcMiddle {
+  width: 100%;
+  height: 600px;
+  margin-right: 1.9%;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+@media screen and (max-width: 767px) {
+  #container .etc .etcWrap > li .etcMiddle {
+    order: 1;
+  }
+}
+#container .etc .etcWrap > li .etcMiddle .newsList {
+  width: 300%;
+  height: 100%;
+}
+#container .etc .etcWrap > li .etcMiddle .newsList > li {
+  float: left;
+  width: 33.33333%;
+  height: 100%;
+}
+#container .etc .etcWrap > li .etcMiddle .newsList > li .newsTitle {
+  font-size: 20px;
+  padding: 10px 40px;
+}
+#container .etc .etcWrap > li .etcMiddle .newsList > li .newsContent {
+  padding: 10px 15px 0px;
+}
+#container .etc .etcWrap > li .etcMiddle .newsList > li img {
+  padding: 10px;
+  width: 90%;
+  height: 60%;
+}
+#container .etc .etcWrap > li .etcMiddle .newsBtn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+#container .etc .etcWrap > li .etcMiddle .newsBtn > li {
+  float: left;
+  margin-left: 10px;
+}
+#container .etc .etcWrap > li .etcMiddle .newsBtn > li > a {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: black;
+  margin-bottom: 10px;
+  text-indent: -9999px;
+}
+#container .etc .etcWrap > li .etcMiddle .newsBtn > li.active a {
+  background-color: #f8dd20;
+}
+#container .etc .etcWrap > li .etcMiddle .newsMore {
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  line-height: 1;
+  border-radius: 50%;
+}
+#container .etc .etcWrap > li .etcMiddle .newsMore a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+}
+#container .etc .etcWrap > li .policy {
+  width: 100%;
+  height: 160px;
+  margin-top: 175px;
+}
+@media screen and (max-width: 767px) {
+  #container .etc .etcWrap > li .policy {
+    order: 2;
+  }
+}
+#container .etc .etcWrap > li .policy h3 {
+  font-size: 25px;
+  font-weight: 600;
+  padding: 20px;
+}
+#container .etc .etcWrap > li .policy .policyContent {
+  word-break: keep-all;
+  padding: 0 30px;
+  font-size: 16px;
+}
+
+/* footer */
+footer {
+  margin-top: 300px;
+  border-top: 1px solid #666;
+  font-size: 14px;
+  padding: 0px 0px 10px;
+}
+footer .footerTop {
+  margin-top: 20px;
+}
+footer .footerTop li {
+  position: relative;
+  float: left;
+  margin-left: 15px;
+  line-height: 24px;
+}
+footer .footerTop li .footerSub {
+  position: absolute;
+  bottom: 150%;
+  left: 0;
+  border: 1px solid black;
+  border-radius: 0;
+  box-sizing: border-box;
+  background-color: white;
+  padding: 5px;
+}
+footer .footerTop li ul {
+  display: none;
+}
+footer .footerTop li:first-child li {
+  width: 130px;
+}
+footer .footerTop li:nth-child(2) span {
+  font-weight: bold;
+}
+footer .footerTop li:nth-child(3) li {
+  width: 140px;
+}
+footer .footerTop li:nth-child(3) span {
+  font-weight: bold;
+}
+footer .footerTop li:nth-child(5) li {
+  width: 140px;
+}
+footer .footerTop li:nth-child(7) li {
+  width: 140px;
+}
+footer .Sites {
+  float: right;
+  margin-right: 10%;
+  border: 1px solid #666;
+  padding: 5px 60px 5px 5px;
+  position: relative;
+}
+@media screen and (max-width: 1200px) {
+  footer .Sites {
+    margin: 20px 80px 5px 20px;
+  }
+}
+footer .Sites::after {
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 42%;
+  content: "+";
+  width: 10px;
+  height: 10px;
+}
+footer .Sites .sitesList {
+  position: absolute;
+  bottom: 150%;
+  left: 0;
+  border: 1px solid black;
+  border-radius: 0;
+  box-sizing: border-box;
+  background-color: white;
+  padding: 5px;
+  display: none;
+}
+footer address {
+  margin: 20px 20px;
+}
