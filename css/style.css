@@ -357,7 +357,7 @@ header .slideMenu ul > li {
   width: 100%;
   line-height: 2;
   padding: 10px;
-  border: 1px solid #ccc;
+  border-bottom: 1px solid #eee;
   box-sizing: border-box;
 }
 header .slideMenu ul > li > a {
@@ -370,6 +370,7 @@ header .slideMenu ul > li .sub {
 }
 header .slideMenu ul > li .sub > li {
   border: none;
+  background: #fefefe;
 }
 header .slideMenu ul > li .sub > li > a {
   font-weight: normal;
@@ -381,6 +382,7 @@ header .slideMenu ul > li .sub .subMenu {
 header .slideMenu ul > li .sub .subMenu > li > a {
   font-weight: normal;
   font-size: 14px;
+  color: #999;
 }
 
 /* 본문 */
@@ -589,6 +591,7 @@ header .slideMenu ul > li .sub .subMenu > li > a {
   padding-top: 5%;
   width: 10000px;
   height: 285px;
+  position: relative;
 }
 @media screen and (max-width: 1200px) {
   #container .history .historyLeft .historyList {

@@ -335,7 +335,7 @@ header {
 //                height: 60px;
                 line-height: 2;
                 padding: 10px;
-                border: 1px solid #ccc;
+                border-bottom:1px solid #eee;
                 box-sizing: border-box;
                 >a{
                     font-size: 18px;
@@ -345,12 +345,15 @@ header {
 
                 .sub {
                       display:none;
+
                     >li {
                         border: none;
 //                        height:60px;
+                        background:#fefefe;
                         >a {
                             font-weight: normal;
                             font-size: 16px;
+
                         }
                     }
 
@@ -358,9 +361,12 @@ header {
                         display: none;
                         >li {
 //                            height: 60px;
+
+//                        background:white;
                             >a {
                                 font-weight: normal;
                                 font-size: 14px;
+                                color:#999;
                             }
                         }
                     }
@@ -614,6 +620,7 @@ header {
                 padding-top: 5%;
                 width: 10000px;
                 height: 285px;
+                position: relative;
 
                 @include mobile($센터사이즈) {
                     height: 600px;

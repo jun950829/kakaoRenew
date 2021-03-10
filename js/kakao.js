@@ -36,12 +36,14 @@ $(function () {
     $(".slideMenu>.sub").hide();
     $(".slideMenu>#slideNav>li>a").click(function () {
         //        console.log($(this).index());
+        $(this).parent("li").siblings().children(".sub").slideUp("fast");
         $(this).parent("li").children(".sub").slideToggle("fast");
     })
 
-    $(".slideMenu>#slideNav>.sub>li>a").click(function () {
-        $(".slideMenu>.sub>.subMenu").hide();
-        $(this).parent("li").children(".subMenu").slideToggle("fast");
+    $(".slideMenu>#slideNav>li>.sub>li>a").click(function () {
+        console.log("sub")
+//        $(".slideMenu>.sub>.subMenu").hide();
+        $(this).next(".subMenu").slideToggle("fast");
     })
 
 
@@ -169,10 +171,10 @@ $(function () {
        $(".hamMenu").css("display","none");
 
         if (winWidth > 767) {
-            clearTimeout(timer);
+            clearTimeout(historyTimer);
             tt();
         } else {
-            clearTimeout(timer);
+            clearTimeout(historyTimer);
             slide();
         }
     })
